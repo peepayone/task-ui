@@ -118,13 +118,13 @@ function App() {
   }
 
   return (
-    <div className="container py-4">
+    <div className="container py-3 py-md-4">
       <div className="row justify-content-center">
-        <div className="col-lg-10">
+        <div className="col-12 col-xl-10">
           {/* 頁面標題 */}
-          <div className="mb-4">
-            <h1 className="fw-bold">Task Management UI</h1>
-            <p className="text-muted mb-0">
+          <div className="mb-3 mb-md-4">
+            <h1 className="fw-bold fs-3 fs-md-2">Task Management UI</h1>
+            <p className="text-muted mb-0 small small-md-normal">
               Simple React frontend integrated with ASP.NET Core Task API.
             </p>
           </div>
@@ -136,9 +136,9 @@ function App() {
             </div>
           )}
 
-          <div className="row g-4">
+          <div className="row g-3 g-md-4">
             {/* 左側：表單區 */}
-            <div className="col-md-4">
+            <div className="col-12 col-md-4">
               <div className="card shadow-sm">
                 <div className="card-body">
                   <h4 className="card-title mb-3">
@@ -180,7 +180,7 @@ function App() {
                       </select>
                     </div>
 
-                    <div className="d-flex gap-2">
+                    <div className="d-grid gap-2 d-md-flex">
                       <button type="submit" className="btn btn-primary">
                         {editingId ? 'Update Task' : 'Add Task'}
                       </button>
@@ -201,21 +201,21 @@ function App() {
             </div>
 
             {/* 右側：列表區 */}
-            <div className="col-md-8">
+            <div className="col-12 col-md-8">
               <div className="card shadow-sm">
                 <div className="card-body">
-                  <div className="d-flex justify-content-between align-items-center mb-3">
+                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-3">
                     <div>
                       <h4 className="card-title mb-0">Task List</h4>
                     </div>
 
-                    <div>
+                    <div className="d-flex align-items-center gap-2">
                       {/*狀態篩選 */}
                       <select
                         className="form-select form-select-sm"
                         value={filterStatus}
                         onChange={(e) => setFilterStatus(e.target.value)}
-                        style={{width: '140px'}}>
+                        style={{maxWidthwidth: '140px'}}>
                         <option value="">All</option>
                         <option value="Todo">Todo</option>
                         <option value="Doing">Doing</option>
@@ -236,10 +236,10 @@ function App() {
                           key={task.id}
                           className="list-group-item list-group-item-action"
                         >
-                          <div className="d-flex justify-content-between align-items-start">
-                            <div>
+                          <div className="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+                            <div className="w-100">
                               <h5 className="mb-1">{task.title}</h5>
-                              <p className="mb-1 text-muted">
+                              <p className="mb-2 text-muted">
                                 {task.description || 'No description'}
                               </p>
                               <span className="badge text-bg-light border">
@@ -247,16 +247,16 @@ function App() {
                               </span>
                             </div>
 
-                            <div className="d-flex gap-2">
+                            <div className="d-flex gap-2 w-100 w-md-auto">
                               <button
-                                className="btn btn-sm btn-outline-primary"
+                                className="btn btn-sm btn-outline-primary flex-fill"
                                 onClick={() => handleEdit(task)}
                               >
                                 Edit
                               </button>
 
                               <button
-                                className="btn btn-sm btn-outline-danger"
+                                className="btn btn-sm btn-outline-danger flex-fill"
                                 onClick={() => handleDelete(task.id)}
                               >
                                 Delete

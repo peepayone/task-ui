@@ -1,3 +1,12 @@
 body {
   background-color: #f8f9fa;
 }
+
+#root {
+  min-height: 100vh;
+}
+
+/* 讓手機上的按鈕更容易點 */
+button {
+  min-height: 38px;
+}
